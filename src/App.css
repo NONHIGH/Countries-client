@@ -1,0 +1,16 @@
+* ::selection {
+  color: unset;
+  background: transparent;
+}
+
+body {
+  margin: unset;
+  box-sizing: border-box;
+  background: #1f1f20;
+  color: #dce0e6;
+  font-size: 5rem;
+  font-family: 'Timmana', sans-serif;
+}
+
+
+
