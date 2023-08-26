@@ -4,7 +4,7 @@ export const DetailContainer = styled.main`
   margin: auto;
   display: flex;
   justify-content: center;
-  width: 98%;
+  /* width: 98%; */
   height: 100%;
   margin-top: 15px;
   font-size: 2rem;
@@ -14,7 +14,6 @@ export const DetailContainer = styled.main`
     border-start-start-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-rows: 1fr 1fr 1fr; */
     background: #567ebb;
     align-items: center;
     grid-template-areas: 
@@ -22,6 +21,7 @@ export const DetailContainer = styled.main`
     "flag flag continent"
     "capital area subregion"
     "population population population"
+    "Activities Activities Activities"
     ;
 
     @media (max-width:1000px) {
@@ -93,15 +93,62 @@ export const BackToHomePage = styled.div`
       }
     
 `
-
-export const ListOfActivities = styled.div`
-  background: red;
-
-`
-
 export const DivSpan = styled.div`
   color: #222;
         span{
           color: #fff;
         }
+`
+
+
+export const ListOfActivities = styled.section`
+  grid-area: Activities;
+  height: 100%;
+  width: 90%;
+  display: grid;
+  justify-content: center;
+  background: #8383;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+        "header header header header"
+        "name difficulty duration season"
+  ;
+
+  .Activitie-name{
+    grid-area: name;
+  }
+  .Activitie-difficulty{
+    grid-area: difficulty;
+  }
+  .Activitie-duration{
+    grid-area: duration;
+  }
+  .Activitie-season{
+    grid-area: season;
+  }
+`
+
+export const HeaderActivities = styled.header`
+  width: 100%;
+  grid-area: header;
+
+  text-align: center;
+  
+  background: #012677;
+  transition: .2s;
+  
+  &:hover{
+    background: #0b2e59;
+  }
+`
+
+export const ActivitiesProperties = styled.div`
+
+  div{
+    padding: 3%;
+    text-align: center;
+    
+  }
 `

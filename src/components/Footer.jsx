@@ -7,14 +7,10 @@ function Footer() {
         <ul>
           <li>dis</li>
           <li>dis</li>
-          <li>dis</li>
-          <li>dis</li>
         </ul>
       </div>
       <div>
         <ul>
-          <li>dis</li>
-          <li>dis</li>
           <li>dis</li>
           <li>dis</li>
         </ul>

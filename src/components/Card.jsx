@@ -1,7 +1,7 @@
 import { CardStyle, CardSectionSpan, CardSectionImage } from "../stylesComponent/StyleCard";
 import { Link } from 'react-router-dom'
 
-function Card({id, image, title }) {
+function Card({id, image, title}) {
   
   return (
     <>

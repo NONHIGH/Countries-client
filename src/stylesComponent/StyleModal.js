@@ -3,30 +3,18 @@ import styled from "styled-components";
 export const ModalContainer = styled.div`
   position: fixed;
   top: 0;
-  left: 0;  
-  width: 100%;
-  height: 100vh;
+  left: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  article {
-    position: absolute;
-    z-index: 100;
-    width: 50%;
-    height: 90%;
-    background: #ffffffff;
-
-    padding: 0 10px 10px 10px;
-    border-radius: 20px;
-    box-shadow: 100px 10px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    
-    @media (max-width: 768px) {
-      width: 100%;
-    }
-
+  flex-direction: column;
+  background: #ffffffff;
+  padding: 0 10px 10px 10px;
+  border-radius: 20px;
+  box-shadow: 100px 10px 10px rgba(0, 0, 0, 0.2);
+  width: 99.8%;
+  
+  div {
     .Modal-button-container {
       button {
         width: 10%;
@@ -48,11 +36,12 @@ export const ModalContainer = styled.div`
         }
       }
     }
-
     .Modal-content-container {
-      margin: 20px;
+      height: 100vh;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
     }
   }
 `;

@@ -1,14 +1,24 @@
 import styled from "styled-components";
 
 export const MainApp = styled.main`
+  position: relative;
+  flex-direction: column;
   color: #1f1f1f;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  background-image: url("https://pixelz.cc/wp-content/uploads/2018/12/world-map-with-countries-uhd-4k-wallpaper.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  min-height: 100%;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+`;
+export const MainLanding = styled.main`
+  position: relative;
+  flex-direction: column;
+  color: #1f1f1f;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,4 +48,4 @@ export const MainApp = styled.main`
       }
     }
   }
-`;
+`
