@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image from "../assets/country.png";
+import image from "../assets/world.png";
 import {
   HeaderContainer,
   UlContainer,
@@ -8,7 +8,8 @@ import {
   HeaderSearchBar,
   HeaderFormSearchBar,
   HeaderLabelSearchBar,
-  HeaderButtonReset
+  
+  Button
 } from "../stylesComponent/StyleHeader";
 import iconSearch from "../assets/search.svg";
 import { useEffect, useState } from "react";
@@ -50,7 +51,7 @@ function Header() {
       <HeaderContainer>
         <div>
           <Link to={"/"}>
-            <img src={image} alt="image" width={30} height={30} />
+            <img src={image} alt="image" />
           </Link>
         </div>
         <HeaderFormSearchBar>
@@ -66,9 +67,9 @@ function Header() {
           placeholder="search"
         />
         </HeaderFormSearchBar>
-        <HeaderButtonReset onClick={resetCountriesFiltered}>
+        <Button onClick={resetCountriesFiltered}>
           Reset
-        </HeaderButtonReset>
+        </Button>
         <UlContainer className="Header-not-display-mobile">
           <li>
             <Link to={"/form"}>Create Activity</Link>

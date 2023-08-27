@@ -3,7 +3,9 @@ import Card from "./Card";
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import React from "react";
-import { ListCardContainer } from "../stylesComponent/StyleListCard.js";
+import { ListCardContainer, ListCardPageContainer } from "../stylesComponent/StyleListCard.js";
+import { Button } from "../stylesComponent/StyleHeader";
+
 
 function ListCard({ currentPage, changePage }) {
   const countries = useSelector((state) => state.countries.countries);
@@ -25,6 +27,24 @@ function ListCard({ currentPage, changePage }) {
   }
 
   return (
+    <>
+    <ListCardPageContainer>
+        <Button
+          onClick={() => {
+            changePage(currentPage - 1);
+          }}
+        >
+          previus
+        </Button>
+        <span>{currentPage} of {totalPages}</span>
+        <Button
+          onClick={() => {
+            changePage(currentPage + 1);
+          }}
+        >
+          next
+        </Button>
+      </ListCardPageContainer>
     <ListCardContainer>
       {paginatedCountries.map((country) => {
         const key = uuidv4();
@@ -34,30 +54,13 @@ function ListCard({ currentPage, changePage }) {
               id={country.id}
               image={country.flag}
               title={country.name}
-            ></Card>
+              ></Card>
           </React.Fragment>
         );
       })}
-      <div>
-        <button
-          onClick={() => {
-            changePage(currentPage - 1);
-          }}
-        >
-          increment
-        </button>
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={() => {
-            changePage(currentPage + 1);
-          }}
-        >
-          decrement
-        </button>
-      </div>
+      
     </ListCardContainer>
+      </>
   );
 }
 

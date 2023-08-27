@@ -47,8 +47,11 @@ export const getCountryByIdFromApi = (id) => async (dispatch) => {
 export const sendForm = (form) => async (dispatch) => {
     try {
         const response = await axios.post(`${URL}/activities`, form);
-        dispatch(setCreated(response.data))
+        dispatch(setCreated(response.data));
+        return response.data;
     } catch (error) {
         alert(error.message)
+        throw error;
+        //heredo el error al form
     }
 }

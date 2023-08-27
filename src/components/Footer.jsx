@@ -1,20 +1,24 @@
-import { FooterMain } from "../stylesComponent/StyleFooter";
+import { FooterMain, SectionFooterLink } from "../stylesComponent/StyleFooter";
+import github from "../assets/github.png";
+import linkedin from "../assets/linkedin.png";
 
 function Footer() {
   return (
     <FooterMain>
-      <div>
+      <SectionFooterLink>
         <ul>
-          <li>dis</li>
-          <li>dis</li>
+          <li>
+            <a href="https://github.com/NONHIGH" target="_blank" rel='noreferrer'>
+              <img src={github} alt="github" title="github" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/angel-bryan-luis-roman-a09328260" target="_blank" rel='noreferrer'>
+              <img src={linkedin} alt="linkedin" title="linkedin" />
+            </a>
+          </li>
         </ul>
-      </div>
-      <div>
-        <ul>
-          <li>dis</li>
-          <li>dis</li>
-        </ul>
-      </div>
+      </SectionFooterLink>
     </FooterMain>
   );
 }

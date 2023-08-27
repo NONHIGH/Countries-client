@@ -16,7 +16,7 @@ const initialState = {
     searchByName: [],
     detailCountry: null,
     selectedCountryIds: [],
-    created: {}
+    messageApi: {}
 };
 
 const countrySlice = createSlice({
@@ -75,7 +75,7 @@ const countrySlice = createSlice({
             state.selectedCountryIds = action.payload;
         },
         setCreated: (state, action) => {
-            state.created = action.payload
+            state.messageApi = action.payload
         }
 
     },

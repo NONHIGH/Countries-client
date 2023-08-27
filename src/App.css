@@ -3,6 +3,7 @@
   background: transparent;
 }
 
+
 body {
   margin: unset;
   box-sizing: border-box;
@@ -31,11 +32,8 @@ body {
 
 }
 
-
-input[type="checkbox"]{
-  /* appearance: none;
-  background-color: red;
-  border: 10px solid blue;
-  cursor: pointer; */
-  /* display: ; */
+.Main-App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

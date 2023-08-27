@@ -7,7 +7,6 @@ export const HeaderContainer = styled.header`
   position: relative;
   display: flex;
   flex-direction: row;
-
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.1px solid #fff;
@@ -18,6 +17,12 @@ export const HeaderContainer = styled.header`
   div {
     display: flex;
     align-items: center;
+    width: 100px;
+    height: 100px;
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
   }
   .Header-not-display-mobile {
     @media (min-width: 1000px) {
@@ -35,6 +40,7 @@ export const BurgerMenu = styled.section`
   }
 `;
 export const DropdownMenu = styled.div`
+  
   display: none;
   @media (max-width: 1000px) {
     display: ${(props) => (props.open ? "block" : "none")};
@@ -42,10 +48,14 @@ export const DropdownMenu = styled.div`
 `;
 
 export const UlContainer = styled.ul`
-  display: ${(props) => (props.open ? "block" : "none")};
+  display: ${(props) => (props.open ? "flex" : "none")};
   gap: 10px;
+  background:#353634;
+  margin: 0;
+  justify-content: center;
   flex-wrap: wrap;
   transition: display 0.3s ease-in-out;
+  
   li {
     text-align: center;
     list-style: none;
@@ -128,13 +138,14 @@ export const HeaderSearchBar = styled.input`
 
 `;
 
-export const HeaderButtonReset = styled.button`
+export const Button = styled.button`
   border: none;
   text-align: center;
   background: linear-gradient(to bottom, #273c75, #192a56);
   padding: 2%;
   font-size: 1.5rem;
-  width: 10%;
+  width: 100%;
+  max-width: 140px;
   border-radius: 20px;
   transition: 0.3s;
   &:hover {

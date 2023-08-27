@@ -23,10 +23,14 @@ import {
 } from "./utils/Validation";
 import { useEffect } from "react";
 import { sendForm } from "../redux/features/country/actions";
+import Toast from './Toast'
 
 
 function Form() {
   const dispatch = useDispatch();
+  
+
+
 
   const [countries, setCountries] = useState([])
 
@@ -67,7 +71,13 @@ function Form() {
 
     setError(formErrors);
   };
-  const handleSubmit = (event) => {
+
+  const [showToast, setShowToast] = useState(null); // Estado para mostrar el toast
+  const [toastType, setToastType] = useState("");
+  const [toastTitle, setToastTitle] = useState("");
+  const [toastMessage, setToastMessage] = useState("");
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
   
     const formErrors = validateForm(form);
@@ -77,9 +87,25 @@ function Form() {
       console.log("There are errors in the form.");
       return; // Detener el envío si hay errores
     }
-    dispatch(sendForm(form));
+    
+    try {
+      const response = await dispatch(sendForm(form));
+      setToastType("success");
+      setToastTitle("Éxito");
+      console.log(response);
+      setToastMessage("La actividad se creó exitosamente.");
+      setShowToast(true);
+      // navigate('/home')
+    } catch (error) {
+      setToastType("error");
+      setToastTitle("Error");
+      setToastMessage(error.message);
+      setShowToast(true);
+
+    }
   };
-  
+
+
 
   useEffect(()=>{
     setForm((prevForm)=> {
@@ -194,6 +220,13 @@ function Form() {
           handleCheckChange={handleCountryCheckChange}
         ></ModalSearch>
       </MainFormContainer>
+      <Toast 
+        type={toastType}
+        title={toastTitle}
+        message={toastMessage}
+        duration={3000}
+        $isVisible={showToast}
+      />
     </>
   );
 }

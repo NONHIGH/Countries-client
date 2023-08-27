@@ -40,6 +40,9 @@ function App() {
 
   return (
     <>
+    <div className="Main-App">
+
+    
       {!inHome && <Header></Header>}
       <Routes>
         {
@@ -55,6 +58,8 @@ function App() {
         }
       </Routes>
       {!inHome && <Footer></Footer>}
+    
+        </div>
     </>
   );
 }
