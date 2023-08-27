@@ -72,10 +72,11 @@ function Form() {
     setError(formErrors);
   };
 
-  const [showToast, setShowToast] = useState(null); // Estado para mostrar el toast
+  const [showToast, setShowToast] = useState(null);
   const [toastType, setToastType] = useState("");
   const [toastTitle, setToastTitle] = useState("");
   const [toastMessage, setToastMessage] = useState("");
+  const durationActivate = 3000;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -91,17 +92,21 @@ function Form() {
     try {
       const response = await dispatch(sendForm(form));
       setToastType("success");
-      setToastTitle("Éxito");
-      console.log(response);
-      setToastMessage("La actividad se creó exitosamente.");
+      setToastTitle("Success!");
+      setToastMessage(`${response.success}`);
       setShowToast(true);
-      // navigate('/home')
+      
+      setTimeout(()=> {
+        setShowToast(false);
+      }, durationActivate)
     } catch (error) {
       setToastType("error");
       setToastTitle("Error");
-      setToastMessage(error.message);
+      setToastMessage(error.error);
       setShowToast(true);
-
+      setTimeout(()=>{
+        setShowToast(false);
+      }, durationActivate)
     }
   };
 
@@ -224,7 +229,7 @@ function Form() {
         type={toastType}
         title={toastTitle}
         message={toastMessage}
-        duration={3000}
+        duration={durationActivate}
         $isVisible={showToast}
       />
     </>
