@@ -12,7 +12,6 @@ const Toast = ({ type, title, message, duration, $isVisible }) => {
     }, duration);
 
     return () => {
-      console.log('finalizado');
       clearTimeout(timeout);
     };
   }, [duration, $isVisible]);

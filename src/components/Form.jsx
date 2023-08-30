@@ -68,7 +68,6 @@ function Form() {
     };
 
     const formErrors = validateForm(updatedForm);
-
     setError(formErrors);
   };
 
@@ -85,8 +84,14 @@ function Form() {
   
     setError(formErrors);
     if (Object.values(formErrors).some((error) => error !== "")) {
-      console.log("There are errors in the form.");
-      return; // Detener el envío si hay errores
+      setToastType("error");
+      setToastTitle("Error");
+      setToastMessage("Fill in the fields correctly");
+      setShowToast(true);
+      setTimeout(()=> {
+        setShowToast(false);
+      }, durationActivate);
+      return;
     }
     
     try {
@@ -145,6 +150,7 @@ function Form() {
     
   }
 
+  console.log(errors);
   return (
     <>
       <MainFormContainer>
@@ -166,7 +172,7 @@ function Form() {
             />
             {errors.name && <span>{errors.name}</span>}
             <FormLabel htmlFor="difficulty">Enter the difficulty</FormLabel>
-            <span>{form.difficulty}</span>
+            <h3>{form.difficulty}</h3>
             <RangeInputT
               id="difficulty"
               type="range"
@@ -200,9 +206,11 @@ function Form() {
               <option value="Winter">Winter</option>
               <option value="Spring">Spring</option>
             </FormSelect>
+            {errors.season && <span>{errors.season}</span>}
             <FormButtonModal type="button" onClick={openModal}>
-              select countries
+              Select countries
             </FormButtonModal>
+            {errors.countries && <span>{errors.countries}</span>}
             <ListCountriesSelected>
             {countries.length > 0 && countries.map((country, index)=>{
               

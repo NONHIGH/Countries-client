@@ -13,7 +13,9 @@ function MainPage() {
 
 
   const changePage = (numPage) => {
-    dispatch(setCurrentPage(numPage));
+    if(numPage >= 1){
+      dispatch(setCurrentPage(numPage));
+    }
   };
   const changeOrder = (by, order) => {
     dispatch(setOrder({by, order}));

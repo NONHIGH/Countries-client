@@ -8,7 +8,7 @@ export const FilterOrder = styled.div`
   position: sticky;
   top: 0px;
   z-index: 900;
-  margin-bottom: 3%;
+  
 `;
 
 export const FiltersContainer = styled.article`

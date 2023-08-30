@@ -25,7 +25,7 @@ function Detail() {
   }, [id, dispatch]);
 
   const country = useSelector((state) => state.countries.detailCountry);
-  console.log(country);
+
   if (!country) {
     return <div>Carregando...</div>;
   }
@@ -101,10 +101,10 @@ function Detail() {
                 return (
                   <React.Fragment key={index}>
                       <ActivitiesProperties>
-                      <div className="Activitie-name">{act?.name}</div>
-                      <div className="Activitie-difficulty">{act?.difficulty}</div>
-                      <div className="Activitie-duration">{act?.duration}</div>
-                      <div className="Activitie-season">{act?.season}</div>
+                      <div className="Activitie-name">Name: {act?.name}</div>
+                      <div className="Activitie-difficulty">Difficulty: {act?.difficulty}</div>
+                      <div className="Activitie-duration">Duration {act?.duration} hs</div>
+                      <div className="Activitie-season">Season: {act?.season}</div>
                       </ActivitiesProperties>
                   </React.Fragment>
                 );

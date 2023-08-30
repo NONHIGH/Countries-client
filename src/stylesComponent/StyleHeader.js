@@ -144,10 +144,14 @@ export const Button = styled.button`
   background: linear-gradient(to bottom, #273c75, #192a56);
   padding: 2%;
   font-size: 1.5rem;
-  width: 100%;
+  display: grid;
+  justify-content: center;
+  height: 5rem;
+  width: 100px;
   max-width: 140px;
   border-radius: 20px;
   transition: 0.3s;
+  margin: 20px;
   &:hover {
     cursor: pointer;
     color: #fffeef;

@@ -9,6 +9,13 @@ export const MainFormContainer = styled.main`
   display: flex;
   flex-direction: column;
 ;
+h3{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: none;
+      padding: unset;
+    }
 `;
 
 export const FormContainer = styled.form`
@@ -32,11 +39,10 @@ export const FormContainer = styled.form`
     outline: #ff3366 solid 5px;
     &:focus{
       outline: 5px #001449 solid;
-      
     }
   }
-  p {
-    
+  span {
+    color: #e21b5a;
   }
 `;
 
@@ -72,6 +78,7 @@ export const FormLabel = styled.label`
     &:hover{
       cursor: pointer;
     }
+    
 `
 
 export const FormInput = styled.input`

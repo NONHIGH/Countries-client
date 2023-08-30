@@ -6,17 +6,16 @@ const initialState = {
     totalPages: 0,
     allCoutries: [],
     filters: {
-        continent: "all",
-        activity: "all",
+        continent: "All",
+        activity: "All",
     },
     orderActive: {
         by: "population",
         order: "asc",
     },
-    searchByName: [],
     detailCountry: null,
     selectedCountryIds: [],
-    messageApi: {}
+    messageApi: {},
 };
 
 const countrySlice = createSlice({
@@ -30,16 +29,18 @@ const countrySlice = createSlice({
         },
         resetCountries: (state) => {
             state.countries = state.allCoutries;
+            state.searchByName = [];
             state.filters = {
-                continent: 'all',
-                activity: 'all'
+                continent: 'All',
+                activity: 'All'
             }
         },
         setCurrentPage: (state, action) => {
             state.currentPage = action.payload;
         },
-        setContinentFilter: (state, action) => {
-            state.filters.continent = action.payload;
+        setFilter: (state, action) => {
+            const { value, name } = action.payload;
+            state.filters[name] = value;
         },
         setOrder: (state, action) => {
             state.orderActive = action.payload;
@@ -63,7 +64,6 @@ const countrySlice = createSlice({
         },
         getCountriesByName: (state, action) => {
             state.countries = action.payload;
-            state.currentPage = 1;
         },
         getCountryById: (state, action) => {
             state.detailCountry = action.payload;
@@ -76,7 +76,9 @@ const countrySlice = createSlice({
         },
         setCreated: (state, action) => {
             state.messageApi = action.payload
-        }
+        },
+
+
 
     },
 });
@@ -84,7 +86,7 @@ const countrySlice = createSlice({
 export const {
     getCountries,
     orderCountriesBy,
-    setContinentFilter,
+    setFilter,
     setCurrentPage,
     setOrder,
     getCountriesByName,

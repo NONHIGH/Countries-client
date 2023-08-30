@@ -7,21 +7,23 @@ import {
   FilterOrderSection,
   FilterOrderSelect
 } from "../stylesComponent/StyleFilters";
-import { setContinentFilter, orderCountriesBy } from "../redux/features/country/countrySlice";
+import { setFilter, orderCountriesBy } from "../redux/features/country/countrySlice";
 
 export default function SectionFilters() {
 
 
   const dispatch = useDispatch();
 
-  const handleContinentFilter = (event)=>{
-    dispatch(setContinentFilter(event.target.value));
+  const handleFilter = (event)=>{
+    const {value, name} = event.target;
+    const payload = {value, name};
+    dispatch(setFilter(payload));
   }
+
   const handleOrderChange = (event) => {
     const {name, value} = event.target;
     dispatch(orderCountriesBy({by:name, order:value}));
   }
-
 
   return (
     <FilterOrder>
@@ -29,8 +31,8 @@ export default function SectionFilters() {
         <h4>Filters</h4>
         <FilterOrderSection>
           <FilterOrderLabel htmlFor="continent">Continent</FilterOrderLabel>
-          <FilterOrderSelect name="continent" id="continent" onChange={handleContinentFilter}>
-            <option defaultValue="all">All</option>
+          <FilterOrderSelect name="continent" id="continent" onChange={handleFilter}>
+            <option defaultValue="All">All</option>
             <option value="Africa">Africa</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
@@ -42,12 +44,12 @@ export default function SectionFilters() {
         </FilterOrderSection>
         <FilterOrderSection>
           <FilterOrderLabel htmlFor="activity">Activity</FilterOrderLabel>
-          <FilterOrderSelect name="activity" id="activity">
-            <option defaultValue="all">All</option>
-            <option value="Africa">Summer</option>
-            <option value="Asia">Autunm</option>
-            <option value="Europe">Winter</option>
-            <option value="South America">Spring</option>
+          <FilterOrderSelect name="activity" id="activity" onChange={handleFilter}>
+            <option defaultValue="All">All</option>
+            <option value="Summer">Summer</option>
+            <option value="Autumn">Autunm</option>
+            <option value="Winter">Winter</option>
+            <option value="Spring">Spring</option>
           </FilterOrderSelect>
         </FilterOrderSection>
       </FiltersContainer>
@@ -56,7 +58,6 @@ export default function SectionFilters() {
         <FilterOrderSection>
           <FilterOrderLabel htmlFor="population">Population</FilterOrderLabel>
           <FilterOrderSelect name="population" id="population" onChange={handleOrderChange}>
-            <option defaultValue="all">All</option>
             <option value="asc">Ascending</option>
             <option value="des">Descending</option>
           </FilterOrderSelect>
@@ -64,7 +65,6 @@ export default function SectionFilters() {
         <FilterOrderSection>
           <FilterOrderLabel htmlFor="name">name</FilterOrderLabel>
           <FilterOrderSelect name="name" id="name" onChange={handleOrderChange}>
-            <option defaultValue="all">All</option>
             <option value="asc">Ascending</option>
             <option value="des">Descending</option>
           </FilterOrderSelect>

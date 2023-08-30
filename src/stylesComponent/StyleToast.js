@@ -34,7 +34,7 @@ border-radius: 4px;
 font-size: 5rem;
 z-index: 1000;
 transition: opacity 0.3s ease-in-out;
-opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+opacity: ${(props) => (props.$isVisible ? 1 : 0)};
 background-color: ${({ type }) =>
         type === "error"
             ? "#f44336"

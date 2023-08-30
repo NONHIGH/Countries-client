@@ -102,6 +102,7 @@ export const DivSpan = styled.div`
 
 
 export const ListOfActivities = styled.section`
+  margin: 100px;
   grid-area: Activities;
   height: 100%;
   width: 90%;
@@ -115,18 +116,22 @@ export const ListOfActivities = styled.section`
         "header header header header"
         "name difficulty duration season"
   ;
-
+        gap: 15px;
   .Activitie-name{
     grid-area: name;
+    outline: 1px dashed blue;
   }
   .Activitie-difficulty{
     grid-area: difficulty;
+    outline: 1px dashed blue;
   }
   .Activitie-duration{
     grid-area: duration;
+    outline: 1px dashed blue;
   }
   .Activitie-season{
     grid-area: season;
+    outline: 1px dashed blue;
   }
 `
 
@@ -142,11 +147,14 @@ export const HeaderActivities = styled.header`
   &:hover{
     background: #0b2e59;
   }
+  
 `
 
 export const ActivitiesProperties = styled.div`
+  margin: 20px;
 
   div{
+    min-width: 5%;
     padding: 3%;
     text-align: center;
     
